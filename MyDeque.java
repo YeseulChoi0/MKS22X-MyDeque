@@ -16,11 +16,11 @@ public class MyDeque<E>{
   }
 
   public String toString(){
-    String s = "[";
+    String s = "{";
     for (int i =0; i < size; i++){
       s += data[i] + ", ";
     }
-    return s + "]";
+    return s + "}";
   }
 
   public void addFirst(E element){
@@ -30,6 +30,7 @@ public class MyDeque<E>{
       start--;
     }
     data[start] = element;
+    System.out.println(start);
     size++;
   }
 
@@ -49,8 +50,10 @@ public class MyDeque<E>{
     }else{
       start++;
     }
+    E returner = data[start];
     data[start] = null;
     size--;
+    return returner;
   }
 
   public E removeLast(){
@@ -59,8 +62,10 @@ public class MyDeque<E>{
     }else{
       end--;
     }
+    E returner = data[end];
     data[end] = null;
     size--;
+    return returner;
   }
 
   public E getFirst(){
